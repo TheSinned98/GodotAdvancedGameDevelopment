@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c03g0iyemjywk"]
+
+[ext_resource type="Script" uid="uid://c6te2xemj1pmw" path="res://Scripts/world_map_ui.gd" id="1_5755a"]
+
+[node name="WorldMapUI" type="CanvasLayer" unique_id=2095158704]
+script = ExtResource("1_5755a")
+
+[node name="Root" type="Control" parent="." unique_id=1182957116]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 616.0
+offset_top = 7.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=766911297]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 1.0
+offset_right = 527.0
+offset_bottom = 186.0
+
+[node name="MapTexture" type="TextureRect" parent="Root" unique_id=1868585054]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 2.0
+offset_right = 526.0
+offset_bottom = 186.0
+
+[node name="PlayerMarker" type="ColorRect" parent="Root/MapTexture" unique_id=1170512198]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 54.0
+offset_right = 119.0
+offset_bottom = 63.0
+color = Color(1, 0, 0, 1)
+
+[node name="Legend" type="VBoxContainer" parent="Root" unique_id=692834466]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 61.0
+offset_right = 92.0
+offset_bottom = 101.0

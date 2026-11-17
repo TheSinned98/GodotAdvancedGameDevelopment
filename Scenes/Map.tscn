@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cq88htcudvtg5"]
+
+[ext_resource type="Script" uid="uid://col583mq24l1f" path="res://Scripts/mapGenerator.gd" id="1_s486e"]
+[ext_resource type="TileSet" uid="uid://dqyuuwquakf1e" path="res://Assets/map_tile_set.tres" id="2_7yn8b"]
+
+[node name="MapRoot" type="Node2D" unique_id=996473988]
+script = ExtResource("1_s486e")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=388367529]
+tile_set = ExtResource("2_7yn8b")
+
+[node name="Grass" type="TileMapLayer" parent="." unique_id=132004993]
+tile_set = ExtResource("2_7yn8b")

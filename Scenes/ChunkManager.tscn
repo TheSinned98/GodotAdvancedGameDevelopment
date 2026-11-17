@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dcmyikr06nkr1"]
+
+[ext_resource type="Script" uid="uid://ch8bi6ssv5t7" path="res://Scripts/chunk_manager.gd" id="1_bx4ay"]
+[ext_resource type="TileSet" uid="uid://dqyuuwquakf1e" path="res://Assets/map_tile_set.tres" id="1_mffnv"]
+
+[node name="ChunkManagerNode" type="Node2D" unique_id=1940352842]
+script = ExtResource("1_bx4ay")
+world_size = Vector2i(4, 4)
+chunk_size = 128
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=757398853]
+tile_set = ExtResource("1_mffnv")
+
+[node name="Overlay" type="TileMapLayer" parent="." unique_id=1607166542]
+tile_set = ExtResource("1_mffnv")
+
+[node name="Decoration" type="TileMapLayer" parent="." unique_id=1417695057]
+tile_set = ExtResource("1_mffnv")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cpq8aer5ouhkf"]
+
+[ext_resource type="Script" uid="uid://1pu2swkka8jk" path="res://Scripts/game.gd" id="1_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://hwuadjfo26y4" path="res://Scenes/Player.tscn" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://dcmyikr06nkr1" path="res://Scenes/ChunkManager.tscn" id="3_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://c03g0iyemjywk" path="res://Scenes/MapUI.tscn" id="4_b2bpf"]
+
+[node name="GameRoot" type="Node2D" unique_id=1353358948]
+script = ExtResource("1_j5yw3")
+
+[node name="ChunkManagerNode" parent="." unique_id=1940352842 instance=ExtResource("3_j5yw3")]
+world_size = Vector2i(200, 200)
+chunk_size = 30
+load_radius = 3
+chunks_per_frame = 1
+
+[node name="PlayerRoot" parent="." unique_id=2123910318 instance=ExtResource("2_gl6un")]
+position = Vector2(200, 92)
+
+[node name="WorldMapUI" parent="." unique_id=2095158704 instance=ExtResource("4_b2bpf")]

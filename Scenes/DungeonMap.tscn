@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2pbdnyokuoij"]
+
+[ext_resource type="Script" uid="uid://cm3rug2nkmses" path="res://Scripts/dungeon_map.gd" id="1_uwj0h"]
+[ext_resource type="TileSet" uid="uid://dqyuuwquakf1e" path="res://Assets/map_tile_set.tres" id="1_ymmvl"]
+
+[node name="DungeonRoot" type="Node2D" unique_id=1266223958]
+script = ExtResource("1_uwj0h")
+map_size = Vector2i(120, 120)
+max_room_size = 150
+steps_between_rooms = 60
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=591721230]
+tile_set = ExtResource("1_ymmvl")
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=1892661365]
+tile_set = ExtResource("1_ymmvl")

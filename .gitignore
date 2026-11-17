@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+/Assets
+/addons
+.svg
+...svg
+/icon.svg
+/icon.svg.import

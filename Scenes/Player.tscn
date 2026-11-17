@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hwuadjfo26y4"]
+
+[ext_resource type="Script" uid="uid://dw1wdcbjl6t1e" path="res://Scripts/player.gd" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://cft2xder1nw0g" path="res://Assets/Characters/Character_1/Shield.png" id="2_kyqiw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70dp7"]
+radius = 6.0
+
+[node name="PlayerRoot" type="Node2D" unique_id=2123910318]
+script = ExtResource("1_rpqav")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=417167874]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1475668989]
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=837762487]
+position = Vector2(0, -16)
+texture = ExtResource("2_kyqiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1051189283]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_70dp7")
