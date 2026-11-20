@@ -22,21 +22,19 @@ func setup(manager: Node, player: Node2D) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_map"):
+	if InputMap.has_action("toggle_map") and event.is_action_pressed("toggle_map"):
 		root.visible = not root.visible
 		get_viewport().set_input_as_handled()
 
 
 func _process(_delta: float) -> void:
-	if root.visible and _player != null:
+	if root.visible and is_instance_valid(_player) and is_instance_valid(_manager):
 		_update_marker()
 
 
 func _update_marker() -> void:
-	var ground: TileMapLayer = _manager.ground
-	var tile := ground.local_to_map(ground.to_local(_player.global_position))
 	# Position in Chunk-Einheiten (mit Nachkommastellen, daher Marker läuft flüssig)
-	var chunk_pos := Vector2(tile) / float(_manager.chunk_size)
+	var chunk_pos: Vector2 = _manager.global_to_chunk_position(_player.global_position)
 
 	# Wo liegt das Bild innerhalb des TextureRect? (wegen Keep Aspect)
 	var box := map_texture.size

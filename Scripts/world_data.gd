@@ -62,13 +62,20 @@ func _sample(pos: Vector2) -> Vector3:
 	return Vector3(h, t, v)
 
 
-func biome_at_tile(tile: Vector2i) -> int:
-	var s := _sample(Vector2(tile) / float(chunk_size))
+func sample_tile(tile: Vector2i) -> Vector3:
+	return _sample(Vector2(tile) / float(chunk_size))
+
+
+func classify_sample(s: Vector3) -> int:
 	return _classify(s.x, s.y, s.z)
 
 
+func biome_at_tile(tile: Vector2i) -> int:
+	return classify_sample(sample_tile(tile))
+
+
 func vegetation_at_tile(tile: Vector2i) -> float:
-	return _sample(Vector2(tile) / float(chunk_size)).z
+	return sample_tile(tile).z
 
 
 func tile_in_bounds(tile: Vector2i) -> bool:
@@ -118,22 +125,25 @@ func find_spawn_chunk(preferred: int = Biome.PLAINS) -> Vector2i:
 	var center := size / 2
 	var best := center
 	var best_dist := INF
+	var closest_land := center
+	var closest_land_dist := INF
 	for y in size.y:
 		for x in size.x:
 			var b := biomes[y * size.x + x]
-			if b != preferred:
-				continue
-			var d := Vector2(Vector2i(x, y) - center).length_squared()
-			if d < best_dist:
+			var d := (Vector2i(x, y) - center).length_squared()
+			if b == preferred and d < best_dist:
 				best_dist = d
 				best = Vector2i(x, y)
-	return best
+			if b != Biome.OCEAN and d < closest_land_dist:
+				closest_land_dist = d
+				closest_land = Vector2i(x, y)
+	return best if best_dist < INF else closest_land
 
 func height_at_tile(tile: Vector2i) -> float:
-	return _sample(Vector2(tile) / float(chunk_size)).x
+	return sample_tile(tile).x
 
 func temperature_at_tile(tile: Vector2i) -> float:
-	return _sample(Vector2(tile) / float(chunk_size)).y
+	return sample_tile(tile).y
 
 # Vorschau-Bild: 1 Pixel pro Chunk
 func to_image() -> Image:
