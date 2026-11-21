@@ -9,10 +9,17 @@
 script = ExtResource("1_j5yw3")
 
 [node name="ChunkManagerNode" parent="." unique_id=1940352842 instance=ExtResource("3_j5yw3")]
+world_seed = null
 world_size = Vector2i(50, 50)
 chunk_size = 50
 load_radius = 1
 chunks_per_frame = 1
+tile_world_size = null
+use_tileset_tile_size = null
+use_atlas_decoration = null
+terrain_detail_strength = null
+block_deep_water = null
+water_collision_layer = null
 
 [node name="PlayerRoot" parent="." unique_id=2123910318 instance=ExtResource("2_gl6un")]
 position = Vector2(200, 92)
